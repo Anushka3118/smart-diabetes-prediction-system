@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Diabetes Predictor - Smart Health Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Navbar with Theme Toggle -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-heart-pulse"></i>
+                <span>Diabetes<span class="gradient-text">Predict</span></span>
+            </a>
+            
+            <!-- THEME TOGGLE BUTTON -->
+            <div class="theme-toggle" id="themeToggle">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                <div class="toggle-ball"></div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#features" onclick="closeMobileMenu()">Features</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+                <li class="mobile-only">
+                    <div class="nav-buttons">
+                        <a href="login.html" class="btn-outline">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                        <a href="register.html" class="btn-primary">
+                            <i class="fas fa-user-plus"></i> Sign Up
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            
+            <!-- Desktop Buttons -->
+            <div class="nav-buttons desktop-only">
+                <a href="login.html" class="btn-outline">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a href="register.html" class="btn-primary">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Your Personal<br>
+                <span class="gradient-text">Diabetes Risk</span><br>
+                Assessment Assistant
+            </h1>
+            <p>Get instant diabetes risk prediction using advanced AI. Track your health, analyze food, and receive personalized recommendations.</p>
+            <div class="hero-buttons">
+                <a href="register.html" class="btn-primary btn-large">
+                    <i class="fas fa-rocket"></i> Get Started Free
+                </a>
+                <a href="#features" class="btn-outline btn-large">
+                    <i class="fas fa-play"></i> Learn More
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>10,000+ Users</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>95% Accuracy</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Free Forever</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://img.freepik.com/free-vector/doctor-checking-blood-pressure-patient_1262-19630.jpg" alt="Doctor checking patient">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose DiabetesPredict?</h2>
+        <p class="section-subtitle">Powerful features to help you manage your health</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI-Powered Prediction</h3>
+                <p>Advanced machine learning algorithms with 95% accuracy in diabetes risk assessment</p>
+                <a href="register.html" class="feature-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3>Smart Food Scanner</h3>
+                <p>Upload food photos and get instant sugar impact analysis with healthy alternatives</p>
+                <a href="register.html" class="feature-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Health Dashboard</h3>
+                <p>Beautiful visualizations of your health trends, progress tracking, and insights</p>
+                <a href="register.html" class="feature-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-medical"></i>
+                </div>
+                <h3>Doctor Reports</h3>
+                <p>Generate professional PDF reports to share with your healthcare provider</p>
+                <a href="register.html" class="feature-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>About Our Technology</h2>
+                <p>DiabetesPredict uses state-of-the-art machine learning models trained on thousands of patient records to provide accurate risk assessments.</p>
+                
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Medical Grade Accuracy</h4>
+                            <p>Our models are validated against clinical datasets</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Privacy First</h4>
+                            <p>Your health data is encrypted and never shared</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Expert Approved</h4>
+                            <p>Developed with input from endocrinologists</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="register.html" class="btn-primary">Start Your Journey</a>
+            </div>
+            <div class="about-image">
+                <img src="https://img.freepik.com/free-vector/medical-technology-science_53876-112046.jpg" alt="Medical technology">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - UPDATED (Removed clinic info) -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have questions? We're here to help</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <!-- Support Card -->
+                <div class="contact-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Our support team is always ready to help you with any questions about the app</p>
+                    <a href="mailto:support@diabetespredict.com" class="contact-link">support@diabetespredict.com</a>
+                </div>
+                
+                <!-- Feedback Card -->
+                <div class="contact-card">
+                    <i class="fas fa-comment-dots"></i>
+                    <h3>Feedback</h3>
+                    <p>We value your feedback to make our app better for everyone</p>
+                    <a href="#" class="contact-link">Share Feedback</a>
+                </div>
+                
+                <!-- FAQ Card -->
+                <div class="contact-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>FAQs</h3>
+                    <p>Check our frequently asked questions for quick answers</p>
+                    <a href="#" class="contact-link">View FAQs</a>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <h3>Send us a Message</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer - UPDATED (App-focused) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>DiabetesPredict</h4>
+                <p>Your trusted partner in diabetes prevention and management through innovative technology.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>App Features</h4>
+                <a href="#features">Risk Prediction</a>
+                <a href="#features">Food Scanner</a>
+                <a href="#features">Health Dashboard</a>
+                <a href="#features">Report Generation</a>
+                <a href="#features">Lifestyle Simulator</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#contact">Help Center</a>
+                <a href="#contact">FAQs</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Download App</h4>
+                <p>Coming soon on iOS and Android</p>
+                <div class="app-badges">
+                    <a href="#" class="app-badge">
+                        <i class="fab fa-apple"></i> App Store
+                    </a>
+                    <a href="#" class="app-badge">
+                        <i class="fab fa-google-play"></i> Google Play
+                    </a>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <p>Subscribe for updates</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 DiabetesPredict. All rights reserved. Made with ❤️ for better health</p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle and Mobile Menu JavaScript -->
+    <script>
+        // ===== THEME TOGGLE FUNCTIONALITY =====
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.className = savedTheme;
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark-theme');
+            } else {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                localStorage.setItem('theme', 'light-theme');
+            }
+        });
+
+        // ===== MOBILE MENU FUNCTIONALITY =====
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+            
+            // Change icon
+            const icon = document.querySelector('.mobile-menu-btn i');
+            if (navMenu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        }
+        
+        function closeMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.remove('active');
+            document.querySelector('.mobile-menu-btn i').className = 'fas fa-bars';
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navMenu.contains(event.target) && !mobileBtn.contains(event.target)) {
+                navMenu.classList.remove('active');
+                document.querySelector('.mobile-menu-btn i').className = 'fas fa-bars';
+            }
+        });
+    </script>
+</body>
+</html>
