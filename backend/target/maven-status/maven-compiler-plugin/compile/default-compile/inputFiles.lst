@@ -1,0 +1,15 @@
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/DemoApplication.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/config/SecurityConfig.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/controller/HealthDataController.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/controller/PredictionController.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/controller/TestController.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/controller/UserController.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/model/HealthData.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/model/PredictionRequest.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/model/PredictionResponse.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/model/User.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/repository/HealthDataRepository.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/repository/UserRepository.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/service/HealthDataService.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/service/PredictionService.java
+/Users/anushkasinha/Desktop/smart-diabetes-prediction-system/backend/src/main/java/com/example/demo/service/UserService.java

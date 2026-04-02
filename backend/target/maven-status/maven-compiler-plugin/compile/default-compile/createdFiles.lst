@@ -1,0 +1,15 @@
+com/example/demo/repository/UserRepository.class
+com/example/demo/service/HealthDataService.class
+com/example/demo/controller/TestController.class
+com/example/demo/controller/PredictionController.class
+com/example/demo/service/PredictionService.class
+com/example/demo/model/HealthData.class
+com/example/demo/controller/HealthDataController.class
+com/example/demo/DemoApplication.class
+com/example/demo/config/SecurityConfig.class
+com/example/demo/controller/UserController.class
+com/example/demo/repository/HealthDataRepository.class
+com/example/demo/model/User.class
+com/example/demo/model/PredictionRequest.class
+com/example/demo/service/UserService.class
+com/example/demo/model/PredictionResponse.class
