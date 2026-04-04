@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Scanner - Diabetes Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Diabetes<span class="highlight">Predict</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="health-form.html">Health Form</a></li>
+                <li><a href="food-upload.html" class="active">Food Scanner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="food-scanner">
+        <h1><i class="fas fa-camera"></i> Food Sugar Analyzer</h1>
+        <p>Upload a photo of your food to check its sugar impact</p>
+
+        <div class="upload-container">
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drag & Drop or Click to Upload</h3>
+                <p>Supported formats: JPG, PNG (Max 5MB)</p>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                    Choose Photo
+                </button>
+            </div>
+
+            <!-- Preview Area (Hidden initially) -->
+            <div class="preview-area" id="previewArea" style="display: none;">
+                <img id="imagePreview" src="" alt="Food preview">
+                <button class="btn-outline" onclick="resetUpload()">
+                    <i class="fas fa-redo"></i> Upload Different
+                </button>
+            </div>
+        </div>
+
+        <!-- Analysis Result (Hidden initially) -->
+        <div class="analysis-result" id="analysisResult" style="display: none;">
+            <h2>Analysis Result</h2>
+            
+            <div class="food-details">
+                <div class="food-name">
+                    <i class="fas fa-utensils"></i>
+                    <span id="foodName">Chocolate Cake</span>
+                </div>
+                
+                <div class="nutrition-grid">
+                    <div class="nutrition-item">
+                        <span class="label">Carbs</span>
+                        <span class="value" id="carbs">50g</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <span class="label">Sugar</span>
+                        <span class="value" id="sugar">35g</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <span class="label">Calories</span>
+                        <span class="value" id="calories">450</span>
+                    </div>
+                    <div class="nutrition-item">
+                        <span class="label">Glycemic Index</span>
+                        <span class="value" id="gi">65</span>
+                    </div>
+                </div>
+                
+                <div class="impact-badge" id="impactBadge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    High Sugar Impact
+                </div>
+            </div>
+
+            <div class="alternatives">
+                <h3>Healthy Alternatives</h3>
+                <div class="alternatives-grid">
+                    <div class="alternative-card">
+                        <img src="assets/images/fruit-yogurt.jpg" alt="Fruit Yogurt">
+                        <h4>Fruit Yogurt</h4>
+                        <p>15g sugar • 120 cal</p>
+                        <button class="btn-outline btn-small">Try This</button>
+                    </div>
+                    <div class="alternative-card">
+                        <img src="assets/images/apple.jpg" alt="Apple">
+                        <h4>Fresh Apple</h4>
+                        <p>19g sugar • 95 cal</p>
+                        <button class="btn-outline btn-small">Try This</button>
+                    </div>
+                    <div class="alternative-card">
+                        <img src="assets/images/berries.jpg" alt="Mixed Berries">
+                        <h4>Mixed Berries</h4>
+                        <p>10g sugar • 80 cal</p>
+                        <button class="btn-outline btn-small">Try This</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const previewArea = document.getElementById('previewArea');
+        const imagePreview = document.getElementById('imagePreview');
+        const analysisResult = document.getElementById('analysisResult');
+
+        // Handle click on upload area
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Handle drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#3b82f6';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#ddd';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.borderColor = '#ddd';
+            const file = e.dataTransfer.files[0];
+            handleFile(file);
+        });
+
+        // Handle file selection
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            handleFile(file);
+        });
+
+        function handleFile(file) {
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.src = e.target.result;
+                    uploadArea.style.display = 'none';
+                    previewArea.style.display = 'block';
+                    
+                    // Show analysis (simulated)
+                    setTimeout(() => {
+                        analysisResult.style.display = 'block';
+                    }, 1000);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function resetUpload() {
+            uploadArea.style.display = 'block';
+            previewArea.style.display = 'none';
+            analysisResult.style.display = 'none';
+            fileInput.value = '';
+        }
+    </script>
+</body>
+</html>

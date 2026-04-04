@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Diabetes Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Diabetes<span class="highlight">Predict</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="health-form.html">Health Form</a></li>
+                <li><a href="food-upload.html">Food Scanner</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <span class="user-name">John Doe</span>
+                <a href="login.html" class="btn-outline">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1>Welcome back, John! 👋</h1>
+            <p>Here's your health summary for today</p>
+        </div>
+
+        <!-- Health Score Card -->
+        <div class="health-score-card">
+            <div class="score-circle">
+                <div class="score-value">85</div>
+                <div class="score-label">Health Score</div>
+            </div>
+            <div class="score-details">
+                <div class="score-trend">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>↑ 5% from last week</span>
+                </div>
+                <div class="score-category">Good</div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-weight-scale stat-icon"></i>
+                <div class="stat-info">
+                    <h3>BMI</h3>
+                    <p class="stat-value">24.5</p>
+                    <span class="stat-status normal">Normal</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-droplet stat-icon"></i>
+                <div class="stat-info">
+                    <h3>Glucose</h3>
+                    <p class="stat-value">110 mg/dL</p>
+                    <span class="stat-status warning">Elevated</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-heart stat-icon"></i>
+                <div class="stat-info">
+                    <h3>Blood Pressure</h3>
+                    <p class="stat-value">120/80</p>
+                    <span class="stat-status normal">Normal</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <i class="fas fa-shoe-prints stat-icon"></i>
+                <div class="stat-info">
+                    <h3>Steps</h3>
+                    <p class="stat-value">6,432</p>
+                    <span class="stat-status">Daily Goal: 8,000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-row">
+            <div class="chart-card">
+                <h3>Glucose Trend (Last 7 Days)</h3>
+                <canvas id="glucoseChart"></canvas>
+            </div>
+            
+            <div class="chart-card">
+                <h3>Risk Score History</h3>
+                <canvas id="riskChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="recent-activities">
+            <h3>Recent Health Records</h3>
+            <table class="activities-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Glucose</th>
+                        <th>BP</th>
+                        <th>Risk Level</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-01-15</td>
+                        <td>110 mg/dL</td>
+                        <td>120/80</td>
+                        <td><span class="badge warning">Medium</span></td>
+                        <td><a href="#" class="view-link">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>2024-01-10</td>
+                        <td>105 mg/dL</td>
+                        <td>118/78</td>
+                        <td><span class="badge success">Low</span></td>
+                        <td><a href="#" class="view-link">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>2024-01-05</td>
+                        <td>125 mg/dL</td>
+                        <td>125/82</td>
+                        <td><span class="badge danger">High</span></td>
+                        <td><a href="#" class="view-link">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="action-buttons">
+                <a href="health-form.html" class="action-btn">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>New Assessment</span>
+                </a>
+                <a href="food-upload.html" class="action-btn">
+                    <i class="fas fa-camera"></i>
+                    <span>Scan Food</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Download Report</span>
+                </a>
+                <a href="#" class="action-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Schedule Checkup</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Glucose Chart
+            const glucoseCtx = document.getElementById('glucoseChart').getContext('2d');
+            new Chart(glucoseCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Glucose Level',
+                        data: [105, 110, 108, 115, 112, 108, 110],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            // Risk Chart
+            const riskCtx = document.getElementById('riskChart').getContext('2d');
+            new Chart(riskCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Risk Score',
+                        data: [65, 58, 52, 48],
+                        backgroundColor: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
