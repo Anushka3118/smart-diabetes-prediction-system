@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CyberPulse Health Monitor</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#121212;
+color:white;
+text-align:center;
+margin:0;
+}
+
+.container{
+background:#1e1e1e;
+width:400px;
+margin:auto;
+margin-top:40px;
+padding:25px;
+border-radius:10px;
+box-shadow:0px 0px 15px rgba(0,0,0,0.6);
+}
+
+/* TABS */
+
+.tabs{
+display:flex;
+justify-content:center;
+margin-bottom:20px;
+}
+
+.tab-btn{
+padding:10px 20px;
+background:#333;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+.tab-btn.active{
+background:#00c896;
+}
+
+/* TAB CONTENT */
+
+.tab-content{
+display:none;
+}
+
+.tab-content.active{
+display:block;
+}
+
+/* FORM */
+
+input{
+width:90%;
+padding:10px;
+margin:8px;
+border-radius:5px;
+border:none;
+background:#2c2c2c;
+color:white;
+}
+
+button{
+padding:10px 20px;
+background:#00c896;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* BARS */
+
+.bar{
+width:100%;
+background:#333;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:15px;
+}
+
+.progress{
+height:20px;
+background:#00c896;
+border-radius:20px;
+width:0%;
+transition:0.5s;
+}
+
+.glucose{
+background:#ff4d4d;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>CyberPulse Health Monitor</h1>
+
+<div class="container">
+
+<!-- TABS -->
+
+<div class="tabs">
+<button class="tab-btn active" onclick="openTab('form')">Health Form</button>
+<button class="tab-btn" onclick="openTab('dashboard')">Dashboard</button>
+</div>
+
+<!-- FORM TAB -->
+
+<div id="form" class="tab-content active">
+
+<h2>Health Data Input</h2>
+
+<input type="text" placeholder="Name">
+
+<input type="number" id="height" placeholder="Height (cm)">
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+
+<input type="number" id="glucose" placeholder="Glucose Level">
+
+<br>
+
+<button onclick="calculateBMI()">Calculate BMI</button>
+
+<h3 id="bmiResult"></h3>
+
+</div>
+
+<!-- DASHBOARD TAB -->
+
+<div id="dashboard" class="tab-content">
+
+<h2>Health Dashboard</h2>
+
+<h4>Health Score</h4>
+
+<div class="bar">
+<div id="healthBar" class="progress"></div>
+</div>
+
+<h4>Glucose Level</h4>
+
+<div class="bar">
+<div id="glucoseBar" class="progress glucose"></div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* TAB SWITCH */
+
+function openTab(tabName){
+
+let tabs=document.querySelectorAll(".tab-content");
+let buttons=document.querySelectorAll(".tab-btn");
+
+tabs.forEach(tab => tab.classList.remove("active"));
+buttons.forEach(btn => btn.classList.remove("active"));
+
+document.getElementById(tabName).classList.add("active");
+event.target.classList.add("active");
+
+}
+
+/* BMI CALCULATE */
+
+function calculateBMI(){
+
+let height=document.getElementById("height").value;
+let weight=document.getElementById("weight").value;
+let glucose=document.getElementById("glucose").value;
+
+if(height=="" || weight==""){
+alert("Please enter height and weight");
+return;
+}
+
+height=height/100;
+
+let bmi=(weight/(height*height)).toFixed(2);
+
+document.getElementById("bmiResult").innerHTML="Your BMI: "+bmi;
+
+/* HEALTH SCORE */
+
+let healthScore=100-bmi;
+
+if(healthScore>100){
+healthScore=100;
+}
+
+if(healthScore<0){
+healthScore=0;
+}
+
+document.getElementById("healthBar").style.width=healthScore+"%";
+
+/* GLUCOSE LIMIT */
+
+if(glucose>100){
+glucose=100;
+}
+
+if(glucose<0){
+glucose=0;
+}
+
+document.getElementById("glucoseBar").style.width=glucose+"%";
+
+}
+
+</script>
+
+</body>
+</html>
